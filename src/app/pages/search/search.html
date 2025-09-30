@@ -1,0 +1,77 @@
+
+
+<div class="container mt-5">
+	<div class="row justify-content-center">
+		<div class="col-md-7">
+			<div class="card shadow">
+				<div class="card-header bg-success text-white text-center">
+					<h4>Search Buses</h4>
+				</div>
+				<div class="card-body">
+					<form (submit)="searchBuses($event)">
+						<div class="row mb-3">
+							<div class="col-md-6 position-relative">
+								<label for="source" class="form-label">Source</label>
+								<input type="text" class="form-control" id="source" placeholder="Enter source" [(ngModel)]="source" name="source" (input)="filterSources()" autocomplete="off" required>
+								<ul *ngIf="filteredSources.length" class="list-group position-absolute w-100" style="z-index:10;">
+									<li *ngFor="let loc of filteredSources" class="list-group-item list-group-item-action" (click)="selectSource(loc)">{{loc}}</li>
+								</ul>
+							</div>
+							<div class="col-md-6 position-relative">
+								<label for="destination" class="form-label">Destination</label>
+								<input type="text" class="form-control" id="destination" placeholder="Enter destination" [(ngModel)]="destination" name="destination" (input)="filterDestinations()" autocomplete="off" required>
+								<ul *ngIf="filteredDestinations.length" class="list-group position-absolute w-100" style="z-index:10;">
+									<li *ngFor="let loc of filteredDestinations" class="list-group-item list-group-item-action" (click)="selectDestination(loc)">{{loc}}</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-md-6">
+								<label for="date" class="form-label">Date of Journey</label>
+								<input type="date" class="form-control" id="date" [(ngModel)]="date" name="date" required>
+							</div>
+							<div class="col-md-6">
+								<label for="passengers" class="form-label">Passengers</label>
+								<input type="number" class="form-control" id="passengers" [(ngModel)]="passengers" name="passengers" min="1" max="10" required>
+							</div>
+						</div>
+						<div class="mb-3 text-center">
+							<button type="submit" class="btn btn-success px-5">Search</button>
+						</div>
+					</form>
+
+					<!-- Search Results -->
+					<div *ngIf="searched">
+						<h5 class="mt-4 mb-3 text-center">Available Buses</h5>
+						<div *ngIf="buses.length; else noResults">
+							<div *ngFor="let bus of buses" class="card mb-3">
+								<div class="card-body">
+									<div class="row align-items-center">
+										<div class="col-md-3">
+											<strong>{{bus.operator}}</strong>
+										</div>
+										<div class="col-md-3">
+											<span>{{bus.departureTime}} - {{bus.arrivalTime}}</span>
+										</div>
+										<div class="col-md-2">
+											<span>₹{{bus.price}}</span>
+										</div>
+										<div class="col-md-2">
+											<span>{{bus.seatsAvailable}} seats left</span>
+										</div>
+										<div class="col-md-2 text-end">
+											<button class="btn btn-outline-primary btn-sm">View Seats</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<ng-template #noResults>
+							<div class="alert alert-warning text-center">No buses found for selected criteria.</div>
+						</ng-template>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
