@@ -1,0 +1,4 @@
+/* Make active navbar links green */
+.navbar-nav .nav-link.active {
+	color: #198754 !important; /* Bootstrap 5 green */
+}

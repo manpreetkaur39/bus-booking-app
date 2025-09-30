@@ -1,0 +1,15 @@
+/* Make the search card fill the full viewport height and width */
+.search-card-holder {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.search-card {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}

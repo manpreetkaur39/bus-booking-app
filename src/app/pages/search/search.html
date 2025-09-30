@@ -1,9 +1,9 @@
 
 
-<div class="container mt-5">
-	<div class="row justify-content-center">
-		<div class="col-md-7">
-			<div class="card shadow">
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light search-page-container">
+	<div class="row w-100 h-100 align-items-center justify-content-center search-row">
+		<div class="col-12 search-card-holder">
+			<div class="card shadow h-100 d-flex flex-column justify-content-center search-card">
 				<div class="card-header bg-success text-white text-center">
 					<h4>Search Buses</h4>
 				</div>
@@ -12,17 +12,17 @@
 						<div class="row mb-3">
 							<div class="col-md-6 position-relative">
 								<label for="source" class="form-label">Source</label>
-								<input type="text" class="form-control" id="source" placeholder="Enter source" [(ngModel)]="source" name="source" (input)="filterSources()" autocomplete="off" required>
-								<ul *ngIf="filteredSources.length" class="list-group position-absolute w-100" style="z-index:10;">
-									<li *ngFor="let loc of filteredSources" class="list-group-item list-group-item-action" (click)="selectSource(loc)">{{loc}}</li>
-								</ul>
+								<select class="form-select" id="source" [(ngModel)]="source" name="source" required>
+									<option value="" disabled selected>Select source</option>
+									<option *ngFor="let loc of locations" [value]="loc">{{loc}}</option>
+								</select>
 							</div>
 							<div class="col-md-6 position-relative">
 								<label for="destination" class="form-label">Destination</label>
-								<input type="text" class="form-control" id="destination" placeholder="Enter destination" [(ngModel)]="destination" name="destination" (input)="filterDestinations()" autocomplete="off" required>
-								<ul *ngIf="filteredDestinations.length" class="list-group position-absolute w-100" style="z-index:10;">
-									<li *ngFor="let loc of filteredDestinations" class="list-group-item list-group-item-action" (click)="selectDestination(loc)">{{loc}}</li>
-								</ul>
+								<select class="form-select" id="destination" [(ngModel)]="destination" name="destination" required>
+									<option value="" disabled selected>Select destination</option>
+									<option *ngFor="let loc of locations" [value]="loc">{{loc}}</option>
+								</select>
 							</div>
 						</div>
 						<div class="row mb-3">

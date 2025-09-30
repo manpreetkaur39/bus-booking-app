@@ -4,35 +4,43 @@ import { Bus } from '../../models/bus';
 @Injectable({ providedIn: 'root' })
 export class BusService {
   private locations: string[] = [
-    'Delhi', 'Mumbai', 'Chandigarh', 'Bangalore', 'Hyderabad', 'Kolkata', 'Chennai', 'Jaipur', 'Pune', 'Lucknow'
+    // Major European cities navigable by train
+    'Amsterdam', 'Athens', 'Barcelona', 'Belgrade', 'Berlin', 'Bern', 'Bratislava', 'Brussels',
+    'Bucharest', 'Budapest', 'Cologne', 'Copenhagen', 'Dresden', 'Dublin', 'Edinburgh', 'Florence',
+    'Frankfurt', 'Geneva', 'Gothenburg', 'Hamburg', 'Helsinki', 'Innsbruck', 'Krakow', 'Leipzig',
+    'Lisbon', 'Ljubljana', 'London', 'Lyon', 'Madrid', 'Milan', 'Munich', 'Naples', 'Nice',
+    'Oslo', 'Paris', 'Porto', 'Prague', 'Rome', 'Rotterdam', 'Salzburg', 'Sarajevo', 'Seville',
+    'Sofia', 'Stockholm', 'Stuttgart', 'Tallinn', 'Turin', 'Valencia', 'Venice', 'Vienna',
+    'Vilnius', 'Warsaw', 'Zagreb', 'Zurich',
+    // Add more as needed for coverage
   ];
 
   private buses: Bus[] = [
     {
-      id: 'bus1',
-      operator: 'GreenLine',
-      from: 'Delhi',
-      to: 'Chandigarh',
+      id: 'eu1',
+      operator: 'EuroRail',
+      from: 'Paris',
+      to: 'Berlin',
       date: '2025-10-01',
-      departureTime: '08:00',
-      arrivalTime: '12:00',
-      price: 500,
-      seatsAvailable: 20,
-      totalSeats: 40
+      departureTime: '07:00',
+      arrivalTime: '15:00',
+      price: 120,
+      seatsAvailable: 30,
+      totalSeats: 50
     },
     {
-      id: 'bus2',
-      operator: 'RedBus',
-      from: 'Delhi',
-      to: 'Jaipur',
+      id: 'eu2',
+      operator: 'InterCity Express',
+      from: 'Amsterdam',
+      to: 'Brussels',
       date: '2025-10-01',
       departureTime: '09:00',
-      arrivalTime: '13:00',
-      price: 600,
-      seatsAvailable: 10,
+      arrivalTime: '12:00',
+      price: 60,
+      seatsAvailable: 20,
       totalSeats: 40
     }
-    // Add more mock buses as needed
+    // Add more mock European train schedules as needed
   ];
 
   getLocations(): string[] {

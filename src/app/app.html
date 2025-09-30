@@ -1,19 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Bus Booking App</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="!isWelcomePage()">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/">Home</a>
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+  <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/my-bookings">My Bookings</a>
+        <a class="nav-link" routerLink="/my-bookings" routerLinkActive="active">My Bookings</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/search">Search</a>
+        <a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
       </li>
     </ul>
   </div>
@@ -22,3 +26,7 @@
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+<script>
+  // Add this method to your App component:
+  // isWelcomePage() { return location.pathname === '/' || location.pathname === '/welcome'; }
+</script>
